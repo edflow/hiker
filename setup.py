@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     setup(
         name="hiker",
-        version="0.1",
+        version="0.1.1",
         license="MIT",
         author="Mimo Tilbich",
         email="haux.johannes@gmail.com",
@@ -33,5 +33,3 @@ if __name__ == "__main__":
         extras_require={"dev": dev_reqs},
         python_requires=">=3.7",
     )
-
-    clean()

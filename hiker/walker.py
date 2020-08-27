@@ -517,9 +517,20 @@ def contains_key(nested_thing, key, splitval="/", expand=True):
         return False
 
 
-def update(to_update, to_update_with, splitval="/", expand=True):
+def update(to_update, to_update_with, splitval="/", expand=True, mode='lax'):
+    assert mode in ['lax', 'medium', 'strict']
+
     def _update(key, value):
-        set_value(to_update, key, value, splitval=splitval)
+        print(key, value)
+        if mode == 'strict' and not contains_key(to_update, key):
+            raise KeyNotFoundError(
+                'Trying to update a nested object in strict '
+                f'mode that does not contain the key `{key}`.'
+            )
+        elif mode == 'medium' and not contains_key(to_update, key):
+            pass
+        else:
+            set_value(to_update, key, value, splitval=splitval)
 
     walk(to_update_with, _update, splitval=splitval, pass_key=True)
 
