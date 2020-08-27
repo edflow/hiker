@@ -31,9 +31,10 @@ and calls a function on all leaf variables.
 Below you can find a table which compares `hiker`'s functionality with those of
 python's `dict` and `list`.
 
+
 | hiker | dict | list | Example |
-| --- | --- | --- |
-| `walk` | - | - |
+| --- | --- | --- | --- |
+| `walk` | - | - |  |
 | `retrieve` | `dict[key]`, `dict.get()` | `list[index]` | `retrieve({'a': [1, 2]}, 'a/0]) => 1` |
 | `pop_keypath` | `dict.pop()` | `list.pop` | | 
 | `set_default` | `dict.setdefault()` | | | 
