@@ -20,9 +20,11 @@ include_files = {}
 if __name__ == "__main__":
 
     setup(
-        name="Hiker",
+        name="hiker",
         version="0.1",
         license="MIT",
+        author="Mimo Tilbich",
+        email="haux.johannes@gmail.com",
         long_description=open("README.md").read(),
         long_description_content_type="text/markdown",
         packages=find_packages(exclude=["tests", "test.*"]),
