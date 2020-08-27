@@ -1,6 +1,6 @@
 import pytest
 import copy
-from walker import (
+from hiker import (
     set_value,
     retrieve,
     walk,
@@ -10,7 +10,7 @@ from walker import (
     get_leaf_names,
 )
 
-import walker
+import hiker
 
 # ================= set_value ====================
 
@@ -18,7 +18,7 @@ import walker
 def test_pop_value_from_key():
     collection = {"a": [1, 2]}
     key = "a"
-    popped_value = walker.pop_value_from_key(collection, key)
+    popped_value = hiker.pop_value_from_key(collection, key)
     expected_value = [1, 2]
     assert expected_value == popped_value
 
@@ -76,29 +76,29 @@ class Test_pop_keypath:
     }
 
     def test_pop_keypath(self, collection, key, expected_value):
-        popped_value = walker.pop_keypath(collection, key)
+        popped_value = hiker.pop_keypath(collection, key)
         assert expected_value == popped_value
 
     def test_default(self, collection, key, expected_value):
-        popped_value = walker.pop_keypath(collection, key, default="abc")
+        popped_value = hiker.pop_keypath(collection, key, default="abc")
         assert expected_value == popped_value
 
     def test_raise_keyNotFoundError(self, collection, key, expected_value):
         with pytest.raises(KeyNotFoundError) as exc_info:
-            walker.pop_keypath(collection, key)
+            hiker.pop_keypath(collection, key)
 
     def test_pass_success(self, collection, key, expected_value):
-        popped_value = walker.pop_keypath(
+        popped_value = hiker.pop_keypath(
             collection, key, default="abc", pass_success=True
         )
         assert expected_value == popped_value
 
     def test_raise_keyNotFoundError_pass_success(self, collection, key, expected_value):
         with pytest.raises(KeyNotFoundError) as exc_info:
-            walker.pop_keypath(collection, key, pass_success=True)
+            hiker.pop_keypath(collection, key, pass_success=True)
 
     def test_pass_sucess_default(self, collection, key, expected_value):
-        popped_value = walker.pop_keypath(
+        popped_value = hiker.pop_keypath(
             collection, key, default="abc", pass_success=True
         )
         assert expected_value == popped_value

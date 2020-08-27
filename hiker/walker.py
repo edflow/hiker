@@ -324,35 +324,6 @@ def pop_keypath(
         return current_item
 
 
-def get_value_from_key(collection: Union[list, dict], key: str):
-    """Get value from collection given key
-    """
-    if isinstance(collection, dict):
-        value = collection[key]
-    else:
-        value = collection[int(key)]
-    return value
-
-
-def pop_value_from_key(collection: Union[list, dict], key: str):
-    """Pop item from collection given key
-
-    Parameters
-    ----------
-    collection : Union[list, dict]
-    key
-
-    Returns
-    -------
-
-    """
-    if isinstance(collection, dict):
-        value = collection.pop(key)
-    else:
-        value = collection.pop(int(key))
-    return value
-
-
 def set_default(list_or_dict, key, default, splitval="/"):
     """Combines :func:`retrieve` and :func:`set_value` to create the
     behaviour of pythons ``dict.setdefault``: If ``key`` is found in

@@ -10,13 +10,9 @@ def clean():
         # possible to-do: also remove directories as above
         os.system(r"del /s /q .\build .\dist .\*.pyc .\*.tgz")
 
-install_reqs = [
-    'numpy'
-]
-dev_reqs = [
-    'pytest',
-    'pytest-cov'
-]
+
+install_reqs = ["numpy"]
+dev_reqs = ["pytest", "pytest-cov"]
 
 include_files = {}
 
