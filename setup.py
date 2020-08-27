@@ -25,7 +25,7 @@ include_files = {}
 if __name__ == "__main__":
 
     setup(
-        name="Walker",
+        name="Hiker",
         version="0.1",
         license="MIT",
         long_description=open("README.md").read(),
