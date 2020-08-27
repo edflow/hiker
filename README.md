@@ -32,12 +32,12 @@ Below you can find a table which compares `hiker`'s functionality with those of
 python's `dict` and `list`.
 
 | hiker | dict | list | Example |
-| ---   | ---         | ---     |
-| `walk`  | -           | -       |
-| `retrieve` | `dict[key]`, `dict.get()`| `list[index]` | `retrieve({'a': [1, 2]}, 'a/0]) => 1` |
-| `pop_keypath` | `dict.pop()`| `list.pop` | | 
+| --- | --- | --- |
+| `walk` | - | - |
+| `retrieve` | `dict[key]`, `dict.get()` | `list[index]` | `retrieve({'a': [1, 2]}, 'a/0]) => 1` |
+| `pop_keypath` | `dict.pop()` | `list.pop` | | 
 | `set_default` | `dict.setdefault()` | | | 
 | `set_value` | `dict[key] = val`, | `list[index] = val` | | 
-| `contains_key` | `key in dict`| `0 <= index < len(list)` | | 
+| `contains_key` | `key in dict` | `0 <= index < len(list)` | | 
 | `update` | `dict.update()` | | |
 | `get_lead_names` | `dict.keys()` | | |
