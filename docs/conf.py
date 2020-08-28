@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'walker'
-copyright = '2020, Author'
-author = 'Author'
+project = 'hiker'
+copyright = '2020, Mimo Tilbich'
+author = 'Mimo Tilbich'
 
 
 # -- General configuration ---------------------------------------------------
