@@ -15,6 +15,17 @@ import sys
 sys.path.insert(0, '..')
 
 
+# -- Mock Modules -----------------------------------------------------------
+from unittest.mock import Mock
+
+MOCK_MODULES = [
+    "numpy",
+]
+
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = Mock()
+
+
 # -- Project information -----------------------------------------------------
 
 project = 'hiker'
