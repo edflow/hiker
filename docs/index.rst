@@ -1,17 +1,16 @@
-.. walker documentation master file, created by
-   sphinx-quickstart on Fri Aug 28 09:45:39 2020.
+.. hiker documentation master file, created by
+   sphinx-quickstart on Fri Aug 28 10:10:16 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to walker's documentation!
-==================================
+Welcome to hiker's documentation!
+=================================
 
 .. toctree::
    :maxdepth: 4
    :caption: Contents:
 
    hiker
-   setup
 
 
 Indices and tables
