@@ -4,10 +4,10 @@ hiker package
 Submodules
 ----------
 
-hiker.walker module
--------------------
+hiker.hiker module
+------------------
 
-.. automodule:: hiker.walker
+.. automodule:: hiker.hiker
    :members:
    :undoc-members:
    :show-inheritance:
