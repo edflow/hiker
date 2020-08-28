@@ -517,7 +517,7 @@ def contains_key(nested_thing, key, splitval="/", expand=True):
         return False
 
 
-def update(to_update, to_update_with, splitval="/", mode='lax'):
+def update(to_update, to_update_with, splitval="/", mode="lax"):
     """
     Updates the entries in a nested object given another nested object.
 
@@ -549,15 +549,15 @@ def update(to_update, to_update_with, splitval="/", mode='lax'):
         If a key in :attr:`to_update_with` cannot be found in
         :attr:`to_update`.
     """
-    assert mode in ['lax', 'medium', 'strict']
+    assert mode in ["lax", "medium", "strict"]
 
     def _update(key, value):
-        if mode == 'strict' and not contains_key(to_update, key):
+        if mode == "strict" and not contains_key(to_update, key):
             raise KeyNotFoundError(
-                'Trying to update a nested object in strict '
-                f'mode that does not contain the key `{key}`.'
+                "Trying to update a nested object in strict "
+                f"mode that does not contain the key `{key}`."
             )
-        elif mode == 'medium' and not contains_key(to_update, key):
+        elif mode == "medium" and not contains_key(to_update, key):
             pass
         else:
             set_value(to_update, key, value, splitval=splitval)

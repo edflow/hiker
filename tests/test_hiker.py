@@ -795,56 +795,82 @@ def test_get_leaf_name():
 # collection = {"a": [1, 2], "b": {"c": {"d": 1}}, "e": 2}
 def _make_updater_1():
     return {"a": [3], "b": {"c": {"d": 2}}}
+
+
 def _make_updater_2():
     return {"a/1": 3, "b": {"c": {"d": 2}}}
+
+
 def _make_updater_3():
     return {"a/2": 3, "b": {"c": {"f": 2}}}
+
 
 class Test_update:
     argnames = ("collection", "updater", "mode", "expected_value")
     params = {
         "test_overwrite_existing": [
-            (make_collection(), _make_updater_1(), 'lax',
-             {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_1(), 'medium',
-             {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_1(), 'strict',
-             {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_2(), 'lax',
-             {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_2(), 'medium',
-             {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_2(), 'strict',
-             {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2}
-             ),
+            (
+                make_collection(),
+                _make_updater_1(),
+                "lax",
+                {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_1(),
+                "medium",
+                {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_1(),
+                "strict",
+                {"a": [3, 2], "b": {"c": {"d": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_2(),
+                "lax",
+                {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_2(),
+                "medium",
+                {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_2(),
+                "strict",
+                {"a": [1, 3], "b": {"c": {"d": 2}}, "e": 2},
+            ),
         ],
         "test_update_nonexistent": [
-            (make_collection(), _make_updater_3(), 'lax',
-             {"a": [1, 2, 3], "b": {"c": {"d": 1, "f": 2}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_3(), 'medium',
-             {"a": [1, 2], "b": {"c": {"d": 1}}, "e": 2}
-             ),
-            (make_collection(), _make_updater_3(), 'strict',
-             None
-             ),
-        ]
+            (
+                make_collection(),
+                _make_updater_3(),
+                "lax",
+                {"a": [1, 2, 3], "b": {"c": {"d": 1, "f": 2}}, "e": 2},
+            ),
+            (
+                make_collection(),
+                _make_updater_3(),
+                "medium",
+                {"a": [1, 2], "b": {"c": {"d": 1}}, "e": 2},
+            ),
+            (make_collection(), _make_updater_3(), "strict", None),
+        ],
     }
 
     def test_overwrite_existing(self, collection, updater, mode, expected_value):
         hiker.update(collection, updater, mode=mode)
         assert expected_value == collection
 
-    def test_update_nonexistent(self, collection, updater, mode,
-                                expected_value):
-        if mode != 'strict':
+    def test_update_nonexistent(self, collection, updater, mode, expected_value):
+        if mode != "strict":
             hiker.update(collection, updater, mode=mode)
-            assert  expected_value == collection
+            assert expected_value == collection
         else:
             with pytest.raises(KeyNotFoundError):
                 hiker.update(collection, updater, mode=mode)
