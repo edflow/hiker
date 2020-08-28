@@ -1,1 +1,1 @@
-from .walker import *
+from .hiker import *

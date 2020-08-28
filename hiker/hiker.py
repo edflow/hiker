@@ -517,11 +517,41 @@ def contains_key(nested_thing, key, splitval="/", expand=True):
         return False
 
 
-def update(to_update, to_update_with, splitval="/", expand=True, mode='lax'):
+def update(to_update, to_update_with, splitval="/", mode='lax'):
+    """
+    Updates the entries in a nested object given another nested object.
+
+    Parameters
+    ----------
+    to_update : dict or list
+        The object that will be manipulated
+    to_update_with : dict or list
+        The object used to manipulate :attr:`to_update`.
+    splitval : str
+        Path element seperator.
+    mode : str
+        One of ``['lax', 'medium', 'strict']``. Determines how the update is
+        executed:
+
+        ``lax``
+            Any given key in :attr:`to_update_with` will be created in
+            :attr:`to_update`.
+        ``medium``
+            Any key in :attr:`to_update_with` that does not exist in
+            :attr:`to_update` will simply be ignored.
+        ``strict``
+            The first key in :attr:`to_update_with` that does not exist in
+            :attr:`to_update` will raise a :class:`KeyNotFoundError`.
+
+    Raises
+    ------
+    KeyNotFoundError
+        If a key in :attr:`to_update_with` cannot be found in
+        :attr:`to_update`.
+    """
     assert mode in ['lax', 'medium', 'strict']
 
     def _update(key, value):
-        print(key, value)
         if mode == 'strict' and not contains_key(to_update, key):
             raise KeyNotFoundError(
                 'Trying to update a nested object in strict '
