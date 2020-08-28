@@ -10,27 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-sys.path.insert(0, '..')
-
-
-# -- Mock Modules -----------------------------------------------------------
-from unittest.mock import Mock
-
-MOCK_MODULES = [
-    "numpy",
-]
-
-for mod_name in MOCK_MODULES:
-    sys.modules[mod_name] = Mock()
+# import os
+# import sys
+# sys.path.insert(0, '/home/jhaux/Projects/edflow/walker/hiker')
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'hiker'
-copyright = '2020, Mimo Tilbich'
-author = 'Mimo Tilbich'
+copyright = '2020, Author'
+author = 'Author'
 
 
 # -- General configuration ---------------------------------------------------
