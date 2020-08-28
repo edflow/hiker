@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/hiker/badge/?version=latest)](https://hiker.readthedocs.io/en/latest/?badge=latest)
+
 # Hiker
 
 Navigating nested python objects with ease.
