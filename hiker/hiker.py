@@ -8,6 +8,10 @@ from typing import *
 import importlib
 
 
+def delete_this():
+    pass
+
+
 def walk(
     dict_or_list,
     fn,
