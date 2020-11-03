@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     setup(
         name="hiker",
-        version="0.1.1",
+        version="0.1.2",
         license="MIT",
         author="Mimo Tilbich",
         email="haux.johannes@gmail.com",
